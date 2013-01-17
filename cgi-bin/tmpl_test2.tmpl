@@ -1,0 +1,9 @@
+<html>
+<head><title>Test LOOP</title><head>
+<body>
+<tmpl_loop name=loop>
+<p>His name is <tmpl_var name=name></p>
+His nickname is <tmpl_loop name=nickname>
+<p><tmpl_var name=name></p>
+</tmpl_loop>
+</tmpl_loop>

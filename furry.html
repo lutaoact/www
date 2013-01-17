@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>furry</title>
+    <link rel="stylesheet" type="text/css" href="css/my_style.css">
+</head>
+<body>
+    <div id="click_me">show it</div>
+    <div id="picframe">
+        <img src="image/1.jpg">
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function() {
+            $("#click_me").click(function() {
+                $("#picframe").slideToggle("slow");
+                $("img").fadeIn(1000);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+create table Student
+(
+ id int unsigned not null primary key,
+ name varchar(20) not null,
+ gender varchar(1) not null,
+ school_id int unsigned not null,
+ major_id int unsigned not null,
+ birth date not null,
+ city_id int unsigned not null,
+ info text not null
+);
+
+create table School
+(
+ school_id int unsigned not null primary key,
+ school varchar(50) not null
+);
+
+create table Major
+(
+ major_id int unsigned not null primary key,
+ major varchar(50) not null
+);
+
+create table Province
+(
+ province_id int unsigned not null primary key,
+ province varchar(30) not null
+);
+
+create table City
+(
+ city_id int unsigned not null primary key,
+ city varchar(30) not null,
+ province_id int unsigned not null
+);

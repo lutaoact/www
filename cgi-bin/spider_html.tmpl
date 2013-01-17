@@ -1,0 +1,15 @@
+<html>
+    <head>
+    <title>Spider HTML Template</title>
+    </head>
+    <body>
+    <h1><tmpl_var name="h1"></h1>
+    <ul>
+    <tmpl_loop name="name">
+        <li>
+            <tmpl_var ESCAPE='HTML' name="id">: <TMPL_var ESCAPE='HTML' NAME="name">
+        </li>
+    </tmpl_loop>
+    </ul>
+    </body>
+</html>

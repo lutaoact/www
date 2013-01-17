@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+function changeSize4()
+      {
+            document.getElementById("mySelect").size=4;
+                  var hello = document.getElementById("hello");
+              hello.onclick = changeSize1;
+                }
+function changeSize1()
+      {
+            document.getElementById("mySelect").size=1
+                  var hello = document.getElementById("hello");
+              hello.onclick = changeSize4;
+                }
+</script>
+</head>
+<body>
+
+<form>
+<select id="mySelect">
+  <option>苹果</option>
+    <option>桃子</option>
+      <option>香蕉</option>
+        <option>桔子</option>
+        </select>
+        <input type="button" id="hello" onclick="changeSize4()" value="改变大小">
+        </form>
+
+        </body>
+        </html>
+

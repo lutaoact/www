@@ -1,0 +1,31 @@
+function loadXMLDoc()
+{
+    var xmlhttp = false;
+    try
+    {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }catch(e)
+    {
+        try
+        {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }catch (e2)
+        {
+            xmlhttp = false;
+        }
+    }
+    if (!xmlhttp && typeof XMLHttpRequest != 'undefined')
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", "1.txt", true);
+    xmlhttp.send();
+}
+//document.write(loadXMLDoc.toString());

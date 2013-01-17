@@ -1,0 +1,30 @@
+<html>
+<head>
+<!--
+<script src="js/json.js"></script>
+-->
+</head>
+<body>
+<p>
+    name: <span id="jname"></span><br />
+    age: <span id=jage></span><br />
+    street: <span id=jstreet></span><br />
+    phone: <span id=jphone></span><br />
+</p>
+<script type=text/javascript>
+var JSONObject =
+{
+    "name":"Bill Gates",
+    "street":"Fifth Avenue",
+    "age":56,
+    "phone":"555 1234567"
+};
+document.getElementById("jname").innerHTML=JSONObject.name;
+document.getElementById("jage").innerHTML=JSONObject.age;
+document.getElementById("jstreet").innerHTML=JSONObject.street;
+document.getElementById("jphone").innerHTML=JSONObject.phone;
+var myString = JSONObject.toString();
+document.write(myString);
+</script>
+</body>
+</html>
