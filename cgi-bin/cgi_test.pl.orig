@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-use warnings; use strict;
+<<<<<<< HEAD
 use CGI;
 $cgi = CGI->new();
 print $cgi->header(-charset=>'utf8'),
@@ -10,3 +10,14 @@ print $cgi->header(-charset=>'utf8'),
       $cgi->end_form,
       $cgi->p({-align=>'center'}, ['Welcom to CGI', 'hello world']),
       $cgi->end_html;
+
+
+=======
+use warnings; use strict;
+use CGI;
+my $cgi = CGI->new();
+print $cgi->header(-charset=>'utf8'),
+	  $cgi->start_html('hello'),
+	  $cgi->h1("挺好的"),
+	  $cgi->end_html();
+>>>>>>> 157d1c4788c4fc789742583c527cd5bef6b4f2b2
