@@ -1,5 +1,5 @@
 $(function() {
-	getXMLRacers();
+	getDBRacers();
 	startAJAXcalls();
 	
 	$('#btnStop').click(function() {
@@ -12,10 +12,39 @@ $(function() {
 		startAJAXcalls();
 		showFrequency();
 	});
+	
+	$('#addRunner').submit(function() {
+		return false;
+	});
+	
+	$('#btnSave').click(function() {
+		$.ajax({
+			url: 'service.php',
+			type: 'POST',
+			data: {
+				action: 'addRunner',
+				first_name: $('#first_name').val(),
+				last_name: $('#last_name').val(),
+				gender: $('#gender').val(),
+				minute: $('#minute').val(),
+				second: $('#second').val(),
+			},
+			dataType: 'json',
+			success: function(json) {
+				clearInputs();
+			}
+		});
+	});
 });
 
+function clearInputs() {
+	$('#addRunner :input').each(function() {
+		$(this).val('');
+	});
+}
+
 var repeate = true;
-var FREQ = 1000;
+var FREQ = 10000;
 function showFrequency() {
 	$('#freq').html("Page refreshes every " + FREQ / 1000 + " second(s).");
 }
@@ -23,12 +52,40 @@ function showFrequency() {
 function startAJAXcalls() {
 	if(repeate) {
 		setTimeout(function() {
-				getXMLRacers();
+				getDBRacers();
 				startAJAXcalls();
 			},
 			FREQ
 		);
 	}
+}
+
+function getDBRacers() {
+	$.ajax({
+		url: 'service.php',
+		type: 'POST',
+		data: {
+			action: 'getRunners'
+		},
+		dataType: 'json',
+		success: function(json) {
+			$('#finishers_m').empty();
+			$('#finishers_f').empty();
+			$('#finishers_all').empty();
+			$.each(json, function() {
+				var info = '<li>Name: ' + this['first_name'] + ' ' + this['last_name'] + '. Time: ' + this['finish_time'] + '</li>';
+				
+				if(this['gender'] == 'm') {
+					$('#finishers_m').append(info);
+				} else if(this['gender'] == 'f') {
+					$('#finishers_f').append(info);
+				}
+				
+				$('#finishers_all').append(info);
+			});
+			getTimeAjax();
+		}
+	});
 }
 
 function getXMLRacers() {
