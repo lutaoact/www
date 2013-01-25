@@ -2,7 +2,7 @@
 require_once('db/DbAdapter.php');
 
 $action = $_REQUEST['action'];
-// echo "****{$action}****";
+
 switch($action) {
 	case 'addRunner':
 		add_runner();
@@ -11,7 +11,6 @@ switch($action) {
 		get_runners();
 		break;
 	default:
-		// get_runners();
 		break;
 }
 
