@@ -1,4 +1,4 @@
 <?php
-	date_default_timezone_set('America/Los_Angeles');
-	echo date("F j, Y, g:i:s a");
+	date_default_timezone_set('Asia/Shanghai');
+	echo date('Y-m-d H:i:s');
 ?>
